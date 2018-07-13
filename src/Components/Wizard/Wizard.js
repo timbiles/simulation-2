@@ -1,54 +1,27 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+
 import './Wizard.css';
 
-export default class Wizard extends Component {
-  constructor() {
-    super();
+import {
+  updateName,
+  updateAddress,
+  updateCity,
+  updateState,
+  updateZip
+} from '../../ducks/reducer';
 
-    this.state = {
-      propName: '',
-      addInput: '',
-      cityInput: '',
-      stateInput: '',
-      zipInput: ''
-    };
-  }
-
-  handleName = val => {
-    this.setState({ propName: val });
-  };
-
-  handleAddress = val => {
-    this.setState({ addInput: val });
-  };
-
-  handleCity = val => {
-    this.setState({ cityinput: val });
-  };
-
-  handleState = val => {
-    this.setState({ stateInput: val });
-  };
-
-  handleZip = val => {
-    this.setState({ zipInput: val });
-  };
-
-  handleSubmit = id => {
-    let { propName, addInput, cityInput, stateInput, zipInput } = this.state;
-
-    axios.post('/api/listings', {
-      name: propName,
-      address: addInput,
-      city: cityInput,
-      state: stateInput,
-      zip: zipInput
-    });
-  };
+class Wizard extends Component {
 
   render() {
+    const {
+      updateName,
+      updateAddress,
+      updateCity,
+      updateState,
+      updateZip
+    } = this.props;
     return (
       <Fragment>
         <header className="header">
@@ -60,38 +33,48 @@ export default class Wizard extends Component {
         <div className="input_boxes">
           <div className="input_box_prop">
             <h2>Property Name</h2>
-            <input
-              type="text"
-              onChange={e => this.handleName(e.target.value)}
-            />
+            <input type="text" onChange={e => updateName(e.target.value)} />
           </div>
           <div className="input_box_address">
             <h2>Address</h2>
             <input
               type="text"
               size={60}
-              onChange={e => this.handleAddress(e.target.value)}
+              onChange={e => updateAddress(e.target.value)}
             />
           </div>
           <div className="input_box_city">
             <h2>City</h2>
-            <input
-              type="text"
-              onChange={e => this.handleCity(e.target.value)}
-            />
+            <input type="text" onChange={e => updateCity(e.target.value)} />
             <h2>State</h2>
-            <input
-              type="text"
-              onChange={e => this.handleState(e.target.value)}
-            />
+            <input type="text" onChange={e => updateState(e.target.value)} />
             <h2>Zip</h2>
-            <input type="text" onChange={e => this.handleZip(e.target.valu)} />
+            <input type="text" onChange={e => updateZip(e.target.value)} />
           </div>
           <div className="complete_btn">
-            <button onClick={id => this.handleSubmit(id)}>Submit</button>
+            <Link to="/wizardStep2">
+              <button>Next</button>
+            </Link>
           </div>
         </div>
       </Fragment>
     );
   }
 }
+
+const mapStateToProps = state => {
+  const { propName, addInput, cityInput, stateInput, zipInput } = state;
+
+  return {
+    propName,
+    addInput,
+    cityInput,
+    stateInput,
+    zipInput
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { updateName, updateAddress, updateCity, updateState, updateZip }
+)(Wizard);

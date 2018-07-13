@@ -14,9 +14,10 @@ const getAll = (req, res, next) => {
 
 const create = (req, res, next) => {
   const db = req.app.get('db');
-  const { name, address, city, state, zip } = req.body;
+  const { name, address, city, state, zip, img, mortgage, rent } = req.body;
+  console.log(req.body);
 
-  db.create_listings([name, address, city, state, zip])
+  db.create_listings([name, address, city, state, zip, img, mortgage, rent])
     .then(() => {
       res.status(200).send('Sweet');
     })

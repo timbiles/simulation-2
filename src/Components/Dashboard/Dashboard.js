@@ -36,11 +36,20 @@ export default class Dashboard extends Component {
     let listingMap = listings.map((e, i) => {
       return (
         <div key={i} className="dashboard_display">
-          <div> {e.name}</div>
-          <div>{e.address}</div>
-          <div>{e.city}</div>
-          <div>{e.state}</div>
-          <div>{e.zip}</div>
+          <div>
+            <div>{e.img}</div>
+          </div>
+          <div>
+            <div> {e.name}</div>
+            <div>{e.address}</div>
+            <div>{e.city}</div>
+            <div>{e.state}</div>
+            <div>{e.zip}</div>
+          </div>
+          <div>
+            <div>{e.mortgage}</div>
+            <div>{e.rent}</div>
+          </div>
           <button onClick={id => this.handleDelete(e.product_id)}>
             Remove
           </button>
@@ -49,11 +58,13 @@ export default class Dashboard extends Component {
     });
     return (
       <Fragment>
-        <h1>Dashboard</h1>
-        <Link to="/wizard">
-          <button> Add New Property</button>
-        </Link>
-        <div>{listingMap}</div>
+        <div className="dashboard_header">
+          <h1>Dashboard</h1>
+          <Link to="/wizardStep1">
+            <button> Add New Property</button>
+          </Link>
+          <div>{listingMap}</div>
+        </div>
       </Fragment>
     );
   }
