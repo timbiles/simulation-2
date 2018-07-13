@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Link } from 'react-router-dom';
 
 import routes from './routes.js';
+import Header from './Components/Header/Header';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +11,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <nav>
-            <header className="App-header" />
+            <header className="App-header">
+              <Header />
+            </header>
             <div>
               <Link to="/">House</Link>
               {/* <Link to='/header'>Header</Link> */}

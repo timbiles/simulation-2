@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input_boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.input_box_city {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

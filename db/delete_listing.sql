@@ -1,0 +1,1 @@
+delete from listings where product_id = $1;

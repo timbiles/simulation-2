@@ -5,7 +5,7 @@ const massive = require('massive');
 const axios = require('axios');
 const port = 3001;
 
-// const controller = require('');
+const controller = require('./controller');
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,7 +19,9 @@ massive(process.env.CONNECTION_STRING)
   });
 
   //end-points
-
+app.get('/api/listings', controller.getAll)
+app.post('/api/listings', controller.create)
+app.delete('/api/listings/:id', controller.del)
 
 
 app.listen(port, () => {
