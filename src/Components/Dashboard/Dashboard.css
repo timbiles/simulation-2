@@ -1,6 +1,21 @@
+.dashboard_header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #E8F4ED;    
+}
+
+
 .dashboard_display {
     border: solid black 2px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+
+.dashboard_body {
+    background-color: #E8F4ED;
 }

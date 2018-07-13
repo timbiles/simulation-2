@@ -9,6 +9,7 @@ const controller = require('./controller');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static(`${__dirname}/../build`));
 
 massive(process.env.CONNECTION_STRING)
   .then(db => {
@@ -18,11 +19,15 @@ massive(process.env.CONNECTION_STRING)
     console.log(err);
   });
 
-  //end-points
-app.get('/api/listings', controller.getAll)
-app.post('/api/listings', controller.create)
-app.delete('/api/listings/:id', controller.del)
+//end-points
+app.get('/api/listings', controller.getAll);
+app.post('/api/listings', controller.create);
+app.delete('/api/listings/:id', controller.del);
 
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Listening on Port: ${port}.`);

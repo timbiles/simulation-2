@@ -18,13 +18,13 @@ class App extends Component {
                 <Header />
               </header>
               <div>
-                <Link to="/">House</Link>
+                {/* <Link to="/">House</Link> */}
                 {/* <Link to='/header'>Header</Link> */}
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/wizardStep1">Wizard</Link>
+                {/* <Link to="/dashboard">Dashboard</Link>
+                <Link to="/wizardStep1">Wizard</Link> */}
               </div>
             </nav>
-            {routes}
+            <div className="main_body">{routes}</div>
           </div>
         </Router>
       </Provider>

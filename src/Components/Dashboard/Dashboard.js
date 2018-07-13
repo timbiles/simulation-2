@@ -37,7 +37,7 @@ export default class Dashboard extends Component {
       return (
         <div key={i} className="dashboard_display">
           <div>
-            <div>{e.img}</div>
+            <img src={e.img} height="200px" width="200px" />
           </div>
           <div>
             <div> {e.name}</div>
@@ -63,6 +63,8 @@ export default class Dashboard extends Component {
           <Link to="/wizardStep1">
             <button> Add New Property</button>
           </Link>
+        </div>
+        <div className='dashboard_body'>
           <div>{listingMap}</div>
         </div>
       </Fragment>
