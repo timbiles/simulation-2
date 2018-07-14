@@ -6,8 +6,8 @@ const initialState = {
   stateInput: '',
   zipInput: '',
   imgUrl: '',
-  mortAmt: 0,
-  monthlyRent: 0
+  mortAmt: '',
+  monthlyRent: ''
 };
 
 //constants
@@ -118,7 +118,7 @@ export default function reducer(state = initialState, action) {
     case UPDATE_RENT:
       return {
         ...state,
-        montlyRent: action.payload
+        monthlyRent: action.payload
       };
     default:
       return state;

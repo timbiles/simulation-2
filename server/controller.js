@@ -4,7 +4,7 @@ const getAll = (req, res, next) => {
   db.get_listings()
     .then(response => {
       res.status(200).send(response);
-      console.log(response);
+      // console.log(response);
     })
     .catch(err => {
       res.status(500).send(err);
@@ -15,7 +15,7 @@ const getAll = (req, res, next) => {
 const create = (req, res, next) => {
   const db = req.app.get('db');
   const { name, address, city, state, zip, img, mortgage, rent } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
 
   db.create_listings([name, address, city, state, zip, img, mortgage, rent])
     .then(() => {
@@ -31,7 +31,7 @@ const create = (req, res, next) => {
 
 const del = (req, res, next) => {
   const db = req.app.get('db');
-  console.log(req.params.id)
+  // console.log(req.params.id)
 
   db.delete_listing(req.params.id)
     .then(() => {

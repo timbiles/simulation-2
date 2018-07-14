@@ -28,7 +28,7 @@ class Wizard3 extends Component {
       mortAmt,
       monthlyRent
     } = this.props;
-    console.log(this.props)
+    // console.log(this.props)
 
     axios.post('/api/listings', {
       name: propName,
@@ -43,6 +43,7 @@ class Wizard3 extends Component {
   };
 
   render() {
+      const {updateMortgage, updateRent} = this.props;
     return (
       <Fragment>
         <header className="header">

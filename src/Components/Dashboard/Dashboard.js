@@ -40,15 +40,15 @@ export default class Dashboard extends Component {
             <img src={e.img} height="200px" width="200px" />
           </div>
           <div>
-            <div> {e.name}</div>
-            <div>{e.address}</div>
-            <div>{e.city}</div>
-            <div>{e.state}</div>
-            <div>{e.zip}</div>
+            <div> Property Name: {e.name}</div>
+            <div> Address: {e.address}</div>
+            <div> City: {e.city}</div>
+            <div> State: {e.state}</div>
+            <div> Zip: {e.zip}</div>
           </div>
           <div>
-            <div>{e.mortgage}</div>
-            <div>{e.rent}</div>
+            <div> Mortgage:{e.mortgage}</div>
+            <div> Rent:{e.rent}</div>
           </div>
           <button onClick={id => this.handleDelete(e.product_id)}>
             Remove
