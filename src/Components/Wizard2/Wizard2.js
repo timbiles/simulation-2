@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import './Wizard2.css';
+// import './Wizard2.css';
 
 import { updateImage } from '../../ducks/reducer';
 
@@ -12,7 +12,7 @@ class Wizard2 extends Component {
     const { updateImage } = this.props;
     return (
       <Fragment>
-        <header className="header">
+        <header className="wizard_header">
           <h1>Add New Property</h1>
           <Link to="/dashboard">
             <button>Cancel</button>

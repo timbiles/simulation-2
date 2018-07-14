@@ -1,4 +1,7 @@
-.header {
+.header_top {
     background-color: #519872;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

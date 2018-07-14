@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-// import './Wizard3.css';
+import './Wizard3.css';
 
 import {
   updateName,
@@ -46,7 +46,7 @@ class Wizard3 extends Component {
       const {updateMortgage, updateRent} = this.props;
     return (
       <Fragment>
-        <header className="header">
+        <header className="wizard_header">
           <h1>Add New Property</h1>
           <Link to="/dashboard">
             <button>Cancel</button>

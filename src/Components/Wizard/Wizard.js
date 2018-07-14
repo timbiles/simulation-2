@@ -24,7 +24,7 @@ class Wizard extends Component {
     } = this.props;
     return (
       <Fragment>
-        <header className="header">
+        <header className="wizard_header">
           <h1>Add New Property</h1>
           <Link to="/dashboard">
             <button>Cancel</button>
@@ -49,7 +49,7 @@ class Wizard extends Component {
             <h2>State</h2>
             <input type="text" onChange={e => updateState(e.target.value)} />
             <h2>Zip</h2>
-            <input type="text" onChange={e => updateZip(e.target.value)} />
+            <input type="number" onChange={e => updateZip(e.target.value)} />
           </div>
           <div className="complete_btn">
             <Link to="/wizardStep2">
